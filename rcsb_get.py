@@ -70,6 +70,10 @@ class ProteinSequence:
       self.json_data  = json.load(open(file_name, 'r'))
 
 if __name__=='__main__':
-  seq = ProteinSequence ("2OCJ")
-  print seq.sequence
-  print seq.istable_start, seq.eris_start, seq.eris_end, seq.istable_end
+  try:
+    protein_name = sys.argv[1]
+  except IndexError:
+    protein_name = "2OCJ"
+  seq = ProteinSequence (protein_name)
+  #print seq.sequence
+  print seq.istable_start, seq.eris_start #, seq.eris_end, seq.istable_end
